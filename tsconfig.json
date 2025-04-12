@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 编译目标版本
+    "module": "ESNext", // 使用 ESNext 模块系统
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // 编译时包含的库
+    "skipDefaultLibCheck": true, // 跳过类型检查
+    "useDefineForClassFields": true, // 使用 class fields 的新语法
+    "moduleResolution": "bundler", // 使用 bundler 模块解析策略
+    "esModuleInterop": true, // 允许默认导入非 ES 模块
+    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中默认导入
+    "resolveJsonModule": true, // 允许导入 JSON 文件
+    "isolatedModules": true , // 将每个文件作为单独的模块处理
+    "jsx":"preserve", // JSX 语法的处理方式
+    
+    "strict": true, // 启用所有严格类型检查选项 
+    "noUnusedLocals": true, // 禁用未使用的局部变量
+    "noUnusedParameters": true, // 禁用未使用的参数
+    "noFallthroughCasesInSwitch": true, // 禁用 switch 语句中的 fallthrough 情况
+  },
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.js", 
+    "src/**/*.d.ts", 
+    "src/**/*.vue", 
+  ],
+  "exclude": ["node_modules", "dist", "build"],
+}
