@@ -57,19 +57,21 @@ module.exports = {
               appendTsSuffixTo: [/\.vue$/], // 给.vue文件添加ts后缀
             },
           },
-          {
-            loader: "babel-loader",
-            // options: {  // 已经迁移到babel.config.js中了
-            //   presets: [
-            //     [
-            //       "@babel/preset-typescript",
-            //       {
-            //         allExtensions: true, // 允许所有扩展名的文件
-            //       },
-            //     ],
-            //   ],
-            // },
-          },
+          "babel-loader",
+          // 已经迁移到babel.config.js中了
+          //   {
+          //     loader: "babel-loader",
+          //     options: {
+          //       presets: [
+          //         [
+          //           "@babel/preset-typescript",
+          //           {
+          //             allExtensions: true, // 允许所有扩展名的文件
+          //           },
+          //         ],
+          //       ],
+          //     },
+          //   },
         ],
       },
     ],

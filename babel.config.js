@@ -1,20 +1,3 @@
-// module.exports = {
-//   presets: [
-//     [
-//       "@babel/preset-env", // 转换ES6+语法
-//       {
-//         useBuiltIns: "usage", // 按需加载polyfill
-//         corejs: 3, // 使用core-js@3
-//       },
-//     ],
-//     [
-//       "@babel/preset-typescript", // 转换TypeScript语法
-//       {
-//         allExtensions: true, // 允许所有扩展名的文件
-//       },
-//     ],
-//   ],
-// };
 // babel.config.js
 module.exports = {
   presets: [
