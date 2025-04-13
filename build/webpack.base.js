@@ -2,16 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader").VueLoaderPlugin;
 const webpack = require("webpack");
+const { getStyleLoader, getCssLoaders } = require("./util");
 
 /**
  * @type {import('webpack').Configuration}
  * @description webpack基础配置
  */
 module.exports = {
-  mode: "production",
-  optimization: {
-    minimize: false, // 是否压缩代码,为了调试方便，配置完后删除
-  },
   entry: path.resolve(__dirname, "../src/main.ts"), // 入口文件
   output: {
     path: path.resolve(__dirname, "../dist"), // 打包后输出目录
@@ -38,7 +35,7 @@ module.exports = {
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: true, // 开启options api 解除控制台警告
       __VUE_PROD_DEVTOOLS__: false, // 生产环境不启用devtools 解除控制台警告
-      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ : false, // 禁用生产中水合不匹配的详细警告
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false, // 禁用生产中水合不匹配的详细警告
     }),
   ],
   module: {
@@ -64,20 +61,34 @@ module.exports = {
             },
           },
           "babel-loader",
-          // 已经迁移到babel.config.js中了
-          //   {
-          //     loader: "babel-loader",
-          //     options: {
-          //       presets: [
-          //         [
-          //           "@babel/preset-typescript",
-          //           {
-          //             allExtensions: true, // 允许所有扩展名的文件
-          //           },
-          //         ],
-          //       ],
-          //     },
-          //   },
+        ],
+      },
+      {
+        oneOf: [
+          {
+            test: /\.css$/i,
+            exclude: [/node_modules/, /\.module\.css$/i],
+            use: [getStyleLoader(), getCssLoaders(), "postcss-loader"],
+          },
+          {
+            test: /\.module\.css$/i,
+            exclude: [/node_modules/],
+            use: [
+              getStyleLoader(),
+              getCssLoaders(true),
+              "postcss-loader", // 处理 CSS 前缀
+            ],
+          },
+          {
+            test: /\.sc|ass$/i,
+            exclude: /node_modules/,
+            use: [
+              getStyleLoader(),
+              getCssLoaders(),
+              "postcss-loader", // 处理 CSS 前缀
+              "sass-loader", // 解析 Sass 文件
+            ],
+          },
         ],
       },
     ],
