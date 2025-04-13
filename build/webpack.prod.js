@@ -1,5 +1,9 @@
+const BaseConfig = require("./webpack.base");
+const { merge } = require("webpack-merge");
 /**
  * @type {import('webpack').Configuration}
- * @description webpack生成环境配置
+ * @description webpack开发环境配置
  */
-module.exports = {};
+module.exports = merge(BaseConfig, {
+  mode: "production", // 开发模式
+});

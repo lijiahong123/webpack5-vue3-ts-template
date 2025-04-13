@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader").VueLoaderPlugin;
+const webpack = require("webpack");
 
 /**
  * @type {import('webpack').Configuration}
@@ -34,6 +35,11 @@ module.exports = {
       inject: true, // 是否自动注入js和css文件
     }),
     new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true, // 开启options api 解除控制台警告
+      __VUE_PROD_DEVTOOLS__: false, // 生产环境不启用devtools 解除控制台警告
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ : false, // 禁用生产中水合不匹配的详细警告
+    }),
   ],
   module: {
     rules: [

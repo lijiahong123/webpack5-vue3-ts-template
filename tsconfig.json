@@ -16,6 +16,11 @@
     "noUnusedLocals": true, // 禁用未使用的局部变量
     "noUnusedParameters": true, // 禁用未使用的参数
     "noFallthroughCasesInSwitch": true, // 禁用 switch 语句中的 fallthrough 情况
+
+    "paths": {
+      "@/*": ["./src/*"], // 设置路径别名
+      "@":["./src"]
+    }
   },
   "include": [
     "src/**/*.ts", 
