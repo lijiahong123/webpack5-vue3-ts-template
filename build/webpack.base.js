@@ -87,6 +87,14 @@ module.exports = {
               getCssLoaders(),
               "postcss-loader", // 处理 CSS 前缀
               "sass-loader", // 解析 Sass 文件
+              {
+                loader: "style-resources-loader",
+                options: {
+                  patterns: [
+                    path.resolve( __dirname, "../src/assets/styles/variables.scss" ),
+                  ], // 引入全局变量和混入
+                },
+              },
             ],
           },
         ],

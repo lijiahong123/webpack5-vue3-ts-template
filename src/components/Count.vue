@@ -28,15 +28,16 @@ const add = () => {
 </script>
 
 <style lang="scss" scoped>
+
 .btn {
     background-color: #007bff;
     border: none;
-    color: #fff;
+    color: $color;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: $font-size;
     margin: 4px 2px;
     cursor: pointer;
 
