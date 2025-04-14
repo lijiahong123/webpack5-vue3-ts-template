@@ -11,5 +11,6 @@ module.exports = merge(BaseConfig, {
     port: 8080, // 端口号
     // open: true, // 自动打开浏览器
     historyApiFallback: true, // 解决history理由模式下刷新页面404时候，重定向到index.html
-  }
+    static: true
+  },
 });

@@ -5,12 +5,18 @@
 
     <Count />
 
-    
+    <br />
+
+    <Image />
+
+
 
 </template>
 
 <script setup lang="ts">
 import Count from "@/components/Count.vue";
+import Image from "@/components/Image.vue";
+
 
 
 

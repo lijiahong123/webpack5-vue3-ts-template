@@ -12,8 +12,7 @@ module.exports = merge(BaseConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash:6].css", // 提取的css文件名
-      
+      filename: "static/css/[name].[contenthash:6].css", // 提取的css文件名
     }),
   ],
 });

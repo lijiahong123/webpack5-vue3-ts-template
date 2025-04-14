@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js",
+    "serve": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js --progress",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js --progress",
     "preview": "serve ./dist -l 4000 -s"
   },
   "keywords": [],
@@ -18,7 +18,10 @@
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.27.0",
     "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
+    "dotenv": "^16.5.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.5.3",

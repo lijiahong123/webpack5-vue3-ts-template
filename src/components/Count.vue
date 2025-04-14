@@ -28,7 +28,6 @@ const add = () => {
 </script>
 
 <style lang="scss" scoped>
-
 .btn {
     background-color: #007bff;
     border: none;

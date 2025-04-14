@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+console.log(process.env.NODE_ENV, ":process.env.NODE_ENV");
 
 const getStyleLoader = () => {
   if (process.env.NODE_ENV === "production") {
@@ -21,7 +22,17 @@ const getCssLoaders = (isModule) => {
       };
 };
 
+function setEnv() {
+  const namespace = process.env.NODE_ENV;
+  const { parsed } = require("dotenv").config({
+    path: [".env", `.env.${namespace}`],
+  });
+
+  return parsed;
+}
+
 module.exports = {
   getStyleLoader,
   getCssLoaders,
+  setEnv,
 };
