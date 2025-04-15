@@ -117,55 +117,51 @@ module.exports = {
         ],
       },
       {
-        oneOf: [
-          {
-            test: /\.(png|jpe?g|gif|webp)(\?.*)?$/i,
-            type: "asset", // 资源类型
-            generator: {
-              filename: "static/images/[name].[contenthash:6][ext]", // 图片文件名
-            },
-            parser: {
-              dataUrlCondition: {
-                maxSize: 10 * 1024, // 小于10kb的图片转为base64格式
-              },
-            },
+        test: /\.(png|jpe?g|gif|webp)(\?.*)?$/i,
+        type: "asset", // 资源类型
+        generator: {
+          filename: "static/images/[name].[contenthash:6][ext]", // 图片文件名
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb的图片转为base64格式
           },
-          {
-            test: /\.(svg|ico)$/i,
-            type: "asset/resource", // svg和ico文件
-            generator: {
-              filename: "static/images/[name].[contenthash:6][ext]", // 图片文件名
-            },
-          },
-          {
-            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i, // 字体
-            type: "asset/resource", // 资源类型
-            generator: {
-              filename: "static/fonts/[name].[contenthash:6][ext]", // 字体文件名
-            },
-          },
-          {
-            test: /\.json$/i,
-            type: "asset/resource", // json文件
-            generator: {
-              filename: "static/json/[name].[contenthash:6][ext]", // json文件名
-            },
-          },
-          {
-            test: /\.(mp3|wav|flac|aac|ogg)$/,
-            type: "asset/resource", // 资源类型
-            generator: {
-              filename: "static/audio/[name].[contenthash:6][ext]", // 音频文件
-            },
-          },
-          {
-            test: /\.(mp4|avi|mkv|flv|wmv|3gp)$/,
-            type: "asset/resource", // 资源类型
-            generator: {
-              filename: "static/video/[name].[contenthash:6][ext]", // 视频文件名
-            },
-          },
-        ],
+        },
+      },
+      {
+        test: /\.(svg|ico)$/i,
+        type: "asset/resource", // svg和ico文件
+        generator: {
+          filename: "static/images/[name].[contenthash:6][ext]", // 图片文件名
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i, // 字体
+        type: "asset/resource", // 资源类型
+        generator: {
+          filename: "static/fonts/[name].[contenthash:6][ext]", // 字体文件名
+        },
+      },
+      {
+        test: /\.json$/i,
+        type: "asset/resource", // json文件
+        generator: {
+          filename: "static/json/[name].[contenthash:6][ext]", // json文件名
+        },
+      },
+      {
+        test: /\.(mp3|wav|flac|aac|ogg)$/,
+        type: "asset/resource", // 资源类型
+        generator: {
+          filename: "static/audio/[name].[contenthash:6][ext]", // 音频文件
+        },
+      },
+      {
+        test: /\.(mp4|avi|mkv|flv|wmv|3gp)$/,
+        type: "asset/resource", // 资源类型
+        generator: {
+          filename: "static/video/[name].[contenthash:6][ext]", // 视频文件名
+        },
       },
     ],
   },
